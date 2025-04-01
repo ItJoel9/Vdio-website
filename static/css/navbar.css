@@ -1,0 +1,100 @@
+/* --- IMPORT FONT --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* --- GLOBAL BASE --- */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #111;
+  color: #fff;
+  display: flex;
+}
+
+/* --- NAVIGATION SIDEBAR --- */
+nav {
+  width: 60px;
+  background: #1a1a1a;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 20px 10px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+  transition: width 0.3s ease;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+nav::-webkit-scrollbar {
+  display: none;
+}
+nav:hover {
+  width: 260px;
+}
+
+/* --- SECTION HEADINGS --- */
+nav h2 {
+  color: #ffffff;
+  text-align: center;
+  margin: 20px 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+nav:hover h2 {
+  opacity: 1;
+}
+
+/* --- NAV LINKS --- */
+nav a {
+  display: flex;
+  align-items: center;
+  color: #ff8500;
+  text-decoration: none;
+  padding: 12px 16px;
+  margin: 8px 0;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: background 0.3s, color 0.3s, transform 0.3s;
+}
+nav a:hover {
+  background: linear-gradient(120deg, #ff8500, #e67e00);
+  color: #fff;
+  transform: scale(1.03);
+}
+nav a.active {
+  background: #ff8500;
+  color: #fff;
+}
+
+/* --- ICON + TEXT --- */
+nav a i {
+  font-size: 1.6rem;
+  min-width: 30px;
+  text-align: center;
+}
+nav a .text {
+  margin-left: 15px;
+  display: none;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+nav:hover a .text {
+  display: inline-block;
+  opacity: 1;
+}
+
+/* --- CONTENT SHIFT --- */
+.main, .content {
+  margin-left: 80px;
+  padding: 40px 20px;
+  transition: margin-left 0.3s ease;
+}
+nav:hover ~ .main,
+nav:hover ~ .content {
+  margin-left: 260px;
+}

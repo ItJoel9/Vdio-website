@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(120deg, #000000, #1a1a1a);
+  color: #ffffff;
+}
+
+/* Sidebar Navigation */
+nav {
+  width: 60px;
+  background: #1a1a1a;
+  height: 100vh;
+  padding: 20px 10px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  transition: width 0.3s ease;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  z-index: 1000;
+}
+nav::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+nav:hover {
+  width: 250px;
+}
+
+/* Navigation Section Titles */
+nav h2 {
+  color: #ffffff;
+  text-align: center;
+  font-size: 1.4rem;
+  margin: 20px 0 10px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+nav:hover h2 {
+  opacity: 1;
+}
+
+/* Nav Links */
+nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ff8500;
+  text-decoration: none;
+  padding: 12px 15px;
+  margin: 6px 0;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background 0.3s, transform 0.3s;
+}
+nav a i {
+  font-size: 1.4rem;
+  min-width: 24px;
+  text-align: center;
+}
+nav a span.text {
+  display: none;
+  white-space: nowrap;
+  transition: opacity 0.3s;
+}
+nav:hover a span.text {
+  display: inline-block;
+  opacity: 1;
+}
+nav a:hover {
+  background: linear-gradient(120deg, #ff8500, #e67e00);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+nav a.active {
+  background: linear-gradient(120deg, #e67e00, #ff8500);
+  color: #ffffff;
+}
+
+/* Main Content */
+.content {
+  margin-left: 80px;
+  padding: 40px 20px;
+  flex-grow: 1;
+  transition: margin-left 0.3s ease;
+}
+nav:hover ~ .content {
+  margin-left: 270px;
+}
+
+/* Header Section */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+header h1 {
+  font-size: 2.5rem;
+  color: #ff8500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+header img {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  object-fit: contain;
+}
+header p {
+  color: #ccc;
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+/* Trimmer Section */
+.trimmer-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #1f1f1f;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 0 15px rgba(255, 133, 0, 0.2);
+  text-align: center;
+}
+.trimmer-container h2 {
+  color: #ff8500;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+
+.audio-preview {
+  margin-top: 15px;
+}
+audio {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.trim-controls {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.trim-controls label {
+  font-size: 1rem;
+  color: #fff;
+}
+
+.trim-controls input {
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  background: #333;
+  color: white;
+  width: 100px;
+  text-align: center;
+}
+
+.trim-controls button {
+  padding: 10px 20px;
+  border: none;
+  background: linear-gradient(120deg, #ff8500, #e67e00);
+  color: white;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.trim-controls button:hover {
+  background: linear-gradient(120deg, #e67e00, #ff8500);
+  transform: scale(1.05);
+}
+
+
+.audio-trimmer-container {
+  padding: 30px;
+  max-width: 800px;
+  margin: auto;
+}
+#waveform {
+  margin: 20px 0;
+}
+.controls, .options, .effects, .action-buttons {
+  margin: 20px 0;
+}
+.controls input[type="range"] {
+  width: 100%;
+}
+.options input, select {
+  margin-left: 10px;
+  margin-right: 20px;
+}
+.effects label {
+  margin-right: 20px;
+}
+button {
+  padding: 10px 20px;
+  background: linear-gradient(120deg, #ff8500, #e67e00);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 10px;
+}

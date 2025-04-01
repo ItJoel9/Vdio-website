@@ -1,0 +1,260 @@
+/* --- IMPORT GOOGLE FONT --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* --- GLOBAL STYLES --- */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #111;
+  color: #fff;
+  display: flex;
+}
+
+/* --- SIDEBAR NAVIGATION --- */
+nav {
+  width: 60px;
+  background: #1a1a1a;
+  height: 100vh;
+  padding: 20px 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+  transition: width 0.3s ease;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+nav::-webkit-scrollbar {
+  display: none;
+}
+nav:hover {
+  width: 250px;
+}
+nav h2 {
+  color: #ffffff;
+  text-align: center;
+  margin: 20px 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+nav:hover h2 {
+  opacity: 1;
+}
+nav a {
+  display: flex;
+  align-items: center;
+  color: #ff8500;
+  text-decoration: none;
+  padding: 12px 15px;
+  margin: 6px 0;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: background 0.3s, color 0.3s, transform 0.3s;
+}
+nav a i {
+  font-size: 1.6rem;
+  min-width: 30px;
+  text-align: center;
+}
+nav a .text {
+  margin-left: 15px;
+  display: none;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+nav:hover a .text {
+  display: inline-block;
+  opacity: 1;
+}
+nav a:hover {
+  background: linear-gradient(120deg, #ff8500, #e67e00);
+  color: #fff;
+  transform: scale(1.05);
+}
+nav a.active {
+  background: #ff8500;
+  color: #fff;
+}
+nav a.active i,
+nav a.active .text {
+  color: #fff;
+}
+
+/* --- MAIN CONTENT --- */
+.main {
+  margin-left: 80px;
+  padding: 40px;
+  transition: margin-left 0.3s ease;
+  flex: 1;
+}
+nav:hover ~ .main {
+  margin-left: 250px;
+}
+.main h1 {
+  color: #ff8500;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* --- SEARCH BAR --- */
+.search-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.search-bar input {
+  flex: 1;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  background: #fff;
+  color: #000;
+}
+.search-bar button {
+  background: #ff8500;
+  color: #111;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.search-bar button:hover {
+  background: #e67e00;
+}
+
+/* --- FILTER BUTTONS --- */
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.filter-buttons button {
+  background: transparent;
+  border: 2px solid #ff8500;
+  color: #ff8500;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.filter-buttons button:hover {
+  background: #ff8500;
+  color: #111;
+}
+
+/* --- MUSIC GRID --- */
+.music-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* --- MUSIC CARD --- */
+.music-card {
+  background: #1f1f1f;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(255, 133, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.music-card:hover {
+  transform: scale(1.02);
+}
+.music-card h3 {
+  color: #ff8500;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+.music-card audio {
+  width: 100%;
+  margin: 10px 0 20px;
+  border-radius: 10px;
+  background: #fff;
+}
+
+/* --- DOWNLOAD BUTTON --- */
+.download-btn {
+  background: transparent;
+  border: 2px solid #ff8500;
+  color: #ff8500;
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+.download-btn:hover {
+  background: #ff8500;
+  color: #111;
+}
+.music-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.music-row {
+  display: grid;
+  grid-template-columns: 30px 60px 1fr 1fr 80px 200px;
+  align-items: center;
+  gap: 15px;
+  background: #1a1a1a;
+  padding: 10px 15px;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.music-row:hover {
+  background: #222;
+}
+
+.music-number {
+  color: #999;
+  font-weight: 500;
+}
+
+.music-row img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.music-info .title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.music-info .artist {
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+.album {
+  color: #bbb;
+  font-size: 0.95rem;
+}
+
+.duration {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.music-row audio {
+  width: 100%;
+}
