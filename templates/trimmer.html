@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Audio Trimmer</title>
+<link href="../media/v.png" rel="icon" type="image/png"/>
+<link href="../static/css/trimmer.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+</link></head>
+<body>
+<!-- Sidebar Navigation -->
+<nav>
+  <h2>Account</h2>
+  <a href="auth.html"><span><i class="fa-solid fa-user"></i></span><span class="text">Login</span></a>
+  <a href="dashboard.html"><i class="fa-solid fa-chart-line"></i><span class="text">Dashboard</span></a>
+
+  <h2>Navigation</h2>
+  <a href="index.html"><i class="fa-solid fa-house"></i><span class="text">Home</span></a>
+  <a href="transitions.html"><i class="fa-solid fa-clapperboard"></i><span class="text">Transitions</span></a>
+  <a href="music.html"><i class="fa-solid fa-music"></i><span class="text">Trending Music</span></a>
+  <a href="styles.html"><i class="fa-solid fa-palette"></i><span class="text">Edit Styles</span></a>
+  <a href="platforms.html"><i class="fa-solid fa-tv"></i><span class="text">Platforms</span></a>
+  <a href="apps.html"><i class="fa-solid fa-mobile-screen-button"></i><span class="text">Apps</span></a>
+
+  <h2>Quick Tools</h2>
+  <a href="converter.html"><i class="fa-solid fa-arrows-spin"></i><span class="text">Video Converter</span></a>
+  <a href="trimmer.html"><i class="fa-solid fa-scissors"></i><span class="text">Audio Trimmer</span></a>
+  <a href="grading.html"><i class="fa-solid fa-brush"></i><span class="text">Color Grading</span></a>
+  <a href="https://motionarray.com/browse/stock-video/free/?utm_source=google&utm_medium=cpc&utm_campaign=16137732949&utm_content=131484452565&utm_term=free%20stock%20video%20footage&keyword=free%20stock%20video%20footage&ad=620565240644&matchtype=e&device=c&gad_source=1&gclid=CjwKCAjw-qi_BhBxEiwAkxvbkFnPx5MmavbmoJXxsq_aLScKbVHYDoEV_pJtAV3Dxjjhm8x0MJk1WRoC_PMQAvD_BwE" target="_blank">
+      <span><i class="fa-solid fa-download"></i></span>
+      <span class="text">Free Stock Video & Music</span>
+    </a>
+  </nav>
+<!-- Main Content -->
+<div class="content">
+<header>
+<h1>
+<img alt="V Logo" src="../media/v.png"/>dio
+                </h1>
+<p>Trim your audio clips with precision</p>
+</header>
+<div class="trimmer-container">
+<h2>Upload Audio File</h2>
+<input accept="audio/*" id="audioInput" type="file"/>
+<div class="audio-preview">
+<audio controls="" id="audioPlayer"></audio>
+</div>
+<div class="trim-controls">
+<label>Start Time (sec):
+          <input id="startTime" min="0" type="number" value="0"/>
+</label>
+<label>End Time (sec):
+          <input id="endTime" min="1" type="number" value="10"/>
+</label>
+<button id="trimButton">Trim Audio</button>
+<button disabled="" id="downloadButton">Download Trimmed</button>
+</div>
+</div>
+</div>
+<script>
+    const audioInput = document.getElementById('audioInput');
+    const audioPlayer = document.getElementById('audioPlayer');
+    const trimBtn = document.getElementById('trimButton');
+    const downloadBtn = document.getElementById('downloadButton');
+
+    let audioURL = '';
+    let originalBuffer = null;
+
+    audioInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        audioURL = URL.createObjectURL(file);
+        audioPlayer.src = audioURL;
+        downloadBtn.disabled = true;
+      }
+    });
+
+    trimBtn.addEventListener('click', () => {
+      alert('This is just a front-end. Actual trimming requires backend logic or a library like ffmpeg!');
+    });
+  </script>
+
+<div class="audio-trimmer-container">
+<h1>Advanced Audio Trimmer</h1>
+<input accept="audio/*" id="audioInput" type="file"/>
+<div id="waveform"></div>
+<div class="controls">
+<label>Start: <span id="startTime">0</span>s</label>
+<input id="startSlider" max="100" min="0" type="range" value="0"/>
+<label>End: <span id="endTime">100</span>s</label>
+<input id="endSlider" max="100" min="0" type="range" value="100"/>
+</div>
+<div class="options">
+<label for="formatSelect">Format:</label>
+<select id="formatSelect">
+<option value="mp3">MP3</option>
+<option value="wav">WAV</option>
+<option value="aac">AAC</option>
+</select>
+<label for="filenameInput">Filename:</label>
+<input id="filenameInput" type="text" value="trimmed-audio"/>
+</div>
+<div class="effects">
+<label><input id="fadeIn" type="checkbox"/> Fade In</label>
+<label><input id="fadeOut" type="checkbox"/> Fade Out</label>
+<label><input id="autoTrimSilence" type="checkbox"/> Auto Trim Silence</label>
+<label><input id="loopPlayback" type="checkbox"/> Loop Trim Preview</label>
+</div>
+<div class="action-buttons">
+<button onclick="playTrim()">Play Trim</button>
+<button onclick="downloadTrim()">Download</button>
+</div>
+<audio controls="" id="previewAudio" style="width: 100%; margin-top: 20px;"></audio>
+</div>
+<script src="https://unpkg.com/wavesurfer.js"></script>
+<script>
+let wavesurfer;
+let audioBlob = null;
+
+document.getElementById('audioInput').addEventListener('change', function(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const url = URL.createObjectURL(file);
+
+  if (wavesurfer) wavesurfer.destroy();
+  wavesurfer = WaveSurfer.create({
+    container: '#waveform',
+    waveColor: '#ff8500',
+    progressColor: '#e67e00',
+    barHeight: 2,
+    height: 80,
+  });
+  wavesurfer.load(url);
+  wavesurfer.on('ready', () => {
+    document.getElementById('startSlider').max = Math.floor(wavesurfer.getDuration());
+    document.getElementById('endSlider').max = Math.floor(wavesurfer.getDuration());
+    document.getElementById('endSlider').value = Math.floor(wavesurfer.getDuration());
+    updateLabels();
+  });
+});
+
+function updateLabels() {
+  document.getElementById('startTime').textContent = document.getElementById('startSlider').value;
+  document.getElementById('endTime').textContent = document.getElementById('endSlider').value;
+}
+
+document.getElementById('startSlider').addEventListener('input', updateLabels);
+document.getElementById('endSlider').addEventListener('input', updateLabels);
+
+function playTrim() {
+  const start = parseFloat(document.getElementById('startSlider').value);
+  const end = parseFloat(document.getElementById('endSlider').value);
+  if (wavesurfer) {
+    wavesurfer.play(start, end);
+    if (document.getElementById('loopPlayback').checked) {
+      wavesurfer.on('finish', () => wavesurfer.play(start, end));
+    }
+  }
+}
+
+function downloadTrim() {
+  alert("Download functionality would be handled server-side or using Web Audio API + Encoder library like lamejs.");
+}
+</script>
+</body>
+</html>

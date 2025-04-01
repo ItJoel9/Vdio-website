@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vdio | Login & Register</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/css/auth.css" />
+  <link rel="icon" href="../media/v.png" type="image/png">
+</head>
+<body>
+  <div class="overlay"></div>
+
+  <div class="auth-container">
+    <img src="../media/v.png" alt="Vdio Logo" class="logo">
+    <h2 id="formTitle">Login to Vdio</h2>
+
+    <form id="loginForm">
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+
+    <form id="registerForm" class="hidden">
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Password" required>
+      <button type="submit">Register</button>
+    </form>
+
+    <button class="toggle-btn" onclick="toggleForm()">
+      Don't have an account? <span>Register</span>
+    </button>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    const toggleBtn = document.querySelector('.toggle-btn');
+    const formTitle = document.getElementById('formTitle');
+
+    function toggleForm() {
+      loginForm.classList.toggle('hidden');
+      registerForm.classList.toggle('hidden');
+
+      const isLogin = loginForm.classList.contains('hidden');
+      toggleBtn.innerHTML = isLogin
+        ? 'Already have an account? <span>Login</span>'
+        : 'Don\'t have an account? <span>Register</span>';
+
+      formTitle.innerText = isLogin ? 'Register on Vdio' : 'Login to Vdio';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vdio | Admin Panel</title>
+  <link rel="stylesheet" href="../static/css/admin.css">
+  <link rel="icon" href="../media/v.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<nav>
+  <a href="dashboard.html"><i class="fa-solid fa-chart-line"></i><span class="text">User Dashboard</span></a>
+  <a href="admin.html"><i class="fa-solid fa-lock"></i><span class="text">Admin Panel</span></a>
+</nav>
+
+<div class="content">
+  <header>
+    <h1><img src="../media/v.png" alt="V Logo">dio</h1>
+    <p>Admin Panel</p>
+  </header>
+
+  <section class="summary">
+    <h2>Site Overview</h2>
+    <div class="stats-grid">
+      <div class="stat-card"><h3>Users</h3><p>128</p></div>
+      <div class="stat-card"><h3>Tool Uses</h3><p>513</p></div>
+      <div class="stat-card"><h3>Challenges</h3><p>34 Submitted</p></div>
+      <div class="stat-card"><h3>Visits</h3><p>1.2K</p></div>
+    </div>
+  </section>
+
+  <section class="user-management">
+    <h2>Manage Users</h2>
+    <table>
+      <thead>
+        <tr><th>Name</th><th>Email</th><th>Role</th><th>Actions</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Mathews</td><td>mathews@vdio.com</td><td>Admin</td>
+          <td><button>Edit</button> <button>Delete</button></td></tr>
+        <tr><td>Sarah</td><td>sarah@vdio.com</td><td>Creator</td>
+          <td><button>Edit</button> <button>Delete</button></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="challenges">
+    <h2>Challenge Submissions</h2>
+    <ul>
+      <li><strong>Spider Reels</strong> by Sarah — <button>Approve</button> <button>Reject</button></li>
+      <li><strong>Music Mash</strong> by Jay — <button>Approve</button> <button>Reject</button></li>
+    </ul>
+  </section>
+</div>
+
+</body>
+</html>

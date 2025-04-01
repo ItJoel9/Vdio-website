@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Platforms</title>
+<link href="../media/v.png" rel="icon" type="image/png"/>
+<link href="../static/css/plat_style.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+</link></head>
+<body>
+<div id="navbar-placeholder"></div>
+<nav>
+  <h2>Account</h2>
+  <a href="auth.html"><span><i class="fa-solid fa-user"></i></span><span class="text">Login</span></a>
+  <a href="dashboard.html"><i class="fa-solid fa-chart-line"></i><span class="text">Dashboard</span></a>
+
+  <h2>Navigation</h2>
+  <a href="index.html"><i class="fa-solid fa-house"></i><span class="text">Home</span></a>
+  <a href="transitions.html"><i class="fa-solid fa-clapperboard"></i><span class="text">Transitions</span></a>
+  <a href="music.html"><i class="fa-solid fa-music"></i><span class="text">Trending Music</span></a>
+  <a href="styles.html"><i class="fa-solid fa-palette"></i><span class="text">Edit Styles</span></a>
+  <a href="platforms.html"><i class="fa-solid fa-tv"></i><span class="text">Platforms</span></a>
+  <a href="apps.html"><i class="fa-solid fa-mobile-screen-button"></i><span class="text">Apps</span></a>
+
+  <h2>Quick Tools</h2>
+  <a href="converter.html"><i class="fa-solid fa-arrows-spin"></i><span class="text">Video Converter</span></a>
+  <a href="trimmer.html"><i class="fa-solid fa-scissors"></i><span class="text">Audio Trimmer</span></a>
+  <a href="grading.html"><i class="fa-solid fa-brush"></i><span class="text">Color Grading</span></a>
+  <a href="https://motionarray.com/browse/stock-video/free/?utm_source=google&utm_medium=cpc&utm_campaign=16137732949&utm_content=131484452565&utm_term=free%20stock%20video%20footage&keyword=free%20stock%20video%20footage&ad=620565240644&matchtype=e&device=c&gad_source=1&gclid=CjwKCAjw-qi_BhBxEiwAkxvbkFnPx5MmavbmoJXxsq_aLScKbVHYDoEV_pJtAV3Dxjjhm8x0MJk1WRoC_PMQAvD_BwE" target="_blank">
+      <span><i class="fa-solid fa-download"></i></span>
+      <span class="text">Free Stock Video & Music</span>
+    </a>
+  </nav>
+  
+<script>
+    fetch("navbar.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("navbar-placeholder").innerHTML = data;
+      });
+  </script>
+<div class="content">
+<header>
+<h1><i class="fa-solid fa-tv"></i> Platforms</h1>
+<p>Choose where to export and share your videos</p>
+</header>
+<section>
+<div class="card-grid">
+<div class="card">
+<h3><i class="fa-brands fa-youtube"></i> YouTube</h3>
+<p>Export in 4K/1080p formats, add thumbnails, and auto-tag.</p>
+<button>Export</button>
+</div>
+<div class="card">
+<h3><i class="fa-brands fa-instagram"></i> Instagram</h3>
+<p>Create Reels, Stories, or Posts with vertical format support.</p>
+<button>Export</button>
+</div>
+<div class="card">
+<h3><i class="fa-brands fa-tiktok"></i> TikTok</h3>
+<p>Perfect for short edits, sounds, and trends.</p>
+<button>Export</button>
+</div>
+</div>
+</section>
+</div>
+
+<div class="platform-section">
+<h1>Export Format Guide</h1>
+<div class="platform-card">
+<h2>YouTube</h2>
+<ul>
+<li>Resolution: 1920x1080 (1080p)</li>
+<li>Aspect Ratio: 16:9</li>
+<li>Format: MP4 (H.264)</li>
+<li>Max Length: 12 hours</li>
+</ul>
+</div>
+<div class="platform-card">
+<h2>Instagram Reels</h2>
+<ul>
+<li>Resolution: 1080x1920</li>
+<li>Aspect Ratio: 9:16</li>
+<li>Format: MP4 (H.264)</li>
+<li>Max Length: 90 sec</li>
+</ul>
+</div>
+<div class="platform-card">
+<h2>Vimeo</h2>
+<ul>
+<li>Resolution: 1920x1080</li>
+<li>Aspect Ratio: 16:9</li>
+<li>Format: MP4 (H.264, AAC)</li>
+<li>Max Size: 5 GB (Free Plan)</li>
+</ul>
+</div>
+<h2>Compare Platforms</h2>
+<table class="comparison-table">
+<thead>
+<tr><th>Platform</th><th>Resolution</th><th>Aspect Ratio</th><th>Max Length</th></tr>
+</thead>
+<tbody>
+<tr><td>YouTube</td><td>1080p</td><td>16:9</td><td>12h</td></tr>
+<tr><td>Instagram</td><td>1080x1920</td><td>9:16</td><td>90s</td></tr>
+<tr><td>TikTok</td><td>1080x1920</td><td>9:16</td><td>10m</td></tr>
+</tbody>
+</table>
+<h2>Embed Generator</h2>
+<input id="videoIdInput" placeholder="Paste YouTube video ID" type="text"/>
+<button onclick="generateEmbed()">Generate Embed Code</button>
+<pre id="embedOutput"></pre>
+<h2>Tips &amp; Metadata Generator</h2>
+<p>Use relevant hashtags and catchy titles. Keep intros short.</p>
+<textarea id="metadataInput" placeholder="Enter video title..."></textarea>
+<button onclick="generateMetadata()">Generate Metadata</button>
+<pre id="metadataOutput"></pre>
+</div>
+<script>
+function generateEmbed() {
+  const id = document.getElementById("videoIdInput").value;
+  const embed = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen></iframe>';
+  document.getElementById("embedOutput").textContent = embed;
+}
+function generateMetadata() {
+  const title = document.getElementById("metadataInput").value;
+  const tags = "#edit #video #vdio";
+  const output = `Title: ${title}\nTags: ${tags}\nFile: ${title.replace(/\s+/g, '_')}.mp4`;
+  document.getElementById("metadataOutput").textContent = output;
+}
+</script>
+</body>
+</html>

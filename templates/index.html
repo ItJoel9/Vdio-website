@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vdio hub</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon" href="../media/v.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+   
+  
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <nav>
+        <h2>Account</h2>
+        <a href="auth.html"><span><i class="fa-solid fa-user"></i></span><span class="text">Login</span></a>
+        <a href="dashboard.html"><i class="fa-solid fa-chart-line"></i><span class="text">Dashboard</span></a>
+
+        <h2>Navigation</h2>
+        <a href="index.html"><i class="fa-solid fa-house"></i><span class="text">Home</span></a>
+        <a href="transitions.html"><i class="fa-solid fa-clapperboard"></i><span class="text">Transitions</span></a>
+        <a href="music.html"><i class="fa-solid fa-music"></i><span class="text">Trending Music</span></a>
+        <a href="styles.html"><i class="fa-solid fa-palette"></i><span class="text">Edit Styles</span></a>
+        <a href="platforms.html"><i class="fa-solid fa-tv"></i><span class="text">Platforms</span></a>
+        <a href="apps.html"><i class="fa-solid fa-mobile-screen-button"></i><span class="text">Apps</span></a>
+      
+        <h2>Quick Tools</h2>
+        <a href="converter.html"><i class="fa-solid fa-arrows-spin"></i><span class="text">Video Converter</span></a>
+        <a href="trimmer.html"><i class="fa-solid fa-scissors"></i><span class="text">Audio Trimmer</span></a>
+        <a href="grading.html"><i class="fa-solid fa-brush"></i><span class="text">Color Grading</span></a>
+        <a href="https://motionarray.com/browse/stock-video/free/?utm_source=google&utm_medium=cpc&utm_campaign=16137732949&utm_content=131484452565&utm_term=free%20stock%20video%20footage&keyword=free%20stock%20video%20footage&ad=620565240644&matchtype=e&device=c&gad_source=1&gclid=CjwKCAjw-qi_BhBxEiwAkxvbkFnPx5MmavbmoJXxsq_aLScKbVHYDoEV_pJtAV3Dxjjhm8x0MJk1WRoC_PMQAvD_BwE" target="_blank">
+            <span><i class="fa-solid fa-download"></i></span>
+            <span class="text">Free Stock Video & Music</span>
+          </a>
+        </nav>
+      
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Header Section -->
+        <header>
+            <h1>
+                <img src="../media/v.png" alt="V Logo">dio
+            </h1>
+            <p>Clueless? yeah me too</p>
+        </header>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <h2>Find Something New</h2>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for tools, tutorials, or videos...">
+                <button>Search</button>
+                <button class="tip-button" onclick="showTip()">Tip of the Day</button>
+            </div>
+            <div class="tip-popup" id="tipPopup">
+                <p>Did you know? Using <b>slow-motion effects</b> in your videos can create a dramatic impact!</p>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="hero">
+            <video autoplay loop muted>
+                <source src="../media/v1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <h2>Search For Your Style</h2>
+        </div>
+
+        <!-- Video Editing Challenges Section -->
+        <div class="challenges">
+            <h2>Video Editing Challenges</h2>
+            <p>Participate in our weekly challenges and showcase your creativity! Compete with other creators and win exciting prizes.</p>
+            <a href="challenges.html" class="cta-button">Join the Challenge</a>
+        </div>
+        
+        <section class="trending-edits">
+            <h2>Trending Edits</h2>
+            <div class="reels-container">
+    
+                <!-- Reel 1 -->
+                <div class="reel">
+                    <video class="reel-thumbnail" autoplay loop muted>
+                        <source src="../media/CDL Studio.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+    
+                <!-- Reel 2 -->
+                <div class="reel">
+                    <video class="reel-thumbnail" autoplay loop muted>
+                        <source src="../media/Spider man test.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    
+                </div>
+    
+                <!-- Reel 3 -->
+                <div class="reel">
+                    <video class="reel-thumbnail" autoplay loop muted>
+                        <source src="../media/v1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+    
+                <!-- Reel 4 -->
+                <div class="reel">
+                    <video class="reel-thumbnail" autoplay loop muted>
+                        <source src="../media/Interview[Group].mov" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    
+                </div>
+    
+                <!-- Reel 5 -->
+                <div class="reel">
+                    <video class="reel-thumbnail" autoplay loop muted>
+                        <source src="../media/Cap Event.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    
+                </div>
+    
+                <!-- Reel 6 -->
+                <div class="reel">
+                    <video class="reel-thumbnail" autoplay loop muted>
+                        <source src="../media/METANOIA_N.mov" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    
+                </div>
+    
+            </div>
+        </section>
+        
+        <!-- Footer -->
+         
+        <footer>
+            <p>&copy; 2025 Video Editing Hub | All Rights Reserved</p>
+        </footer>
+        <!-- Fullscreen Reel Modal -->
+<div id="reelModal" class="reel-modal">
+    <div class="modal-content">
+        <video id="modalVideo" autoplay loop controls></video>
+        <button class="close-modal">&times;</button>
+    </div>
+</div>
+
+ <script src="../static/js/scripthome.js"></script>
+
+</body>
+</html>
